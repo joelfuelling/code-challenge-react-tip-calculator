@@ -1,23 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import Bill from './components/bill';
+import Percent from './components/percent';
+import Output from './components/output';
+import Reset from './components/reset';
+import { useState } from 'react';
 
-function App() {
+function App(onClick) {
+  const [tip, setTip] = useState(0)
+  const [bill, setBill] = useState('')
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Bill bill={bill}/>
+      <Percent tip={tip}/>
+      <Percent tip={tip}/>
+      <Output />
+      <Reset setTip={setTip} setBill={setBill} onClick={onClick}/>
     </div>
   );
 }
