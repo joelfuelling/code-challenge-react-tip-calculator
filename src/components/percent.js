@@ -1,17 +1,11 @@
-import {useState} from 'react'
 
-export default function Percent() {
-    const [tip, setTip] = useState(0)
-
-    function handleTipAmount(e) {
-        const newTip = e.target.value
-        setTip(newTip)
-    }
+export default function Percent({children, percentage, onSelect}) {
     return (
         <>
-        <h1>What percent tip would you like to leave?
-            <select type="text" value={tip} placeholder="Tip %" onChange={handleTipAmount}>
-                <option value={''}></option>
+        <h1>
+            <label>{children}</label>
+            <select type="text" value={percentage} placeholder="Tip %" onChange={e => onSelect(Number(e.target.value))}>
+                <option value={0}>0%</option>
                 <option value={5}>5%</option>
                 <option value={10}>10%</option>
                 <option value={15}>15%</option>

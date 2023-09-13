@@ -1,14 +1,9 @@
 
 
-export default function Reset({setTip, setBill}) {
-
-    function handleReset() {
-        setTip(0)
-        setBill(null)
-    }
+export default function Reset({onReset}) {
     return(
         <>
-        <button onClick={handleReset}>Reset</button>
+        <button onClick={onReset}>Reset</button>
         </>
     )
 }

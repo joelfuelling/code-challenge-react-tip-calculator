@@ -1,17 +1,12 @@
-import {useState} from 'react'
 
-export default function Bill() {
-    const [bill, setBill] = useState('')
+export default function Bill({children, bill, onSetBill}) {
 
-    function handleBillChange(e) {
-        const newBill = e.target.value
-        setBill(newBill)
-    }
     return (
         <>
         <div>
-        <h1>How much was the bill?
-            <input type="text" value={bill} onChange={handleBillChange} placeholder='Enter bill amount...'></input>
+        <h1>{children}
+            <input type="text" value={bill} onChange={e => onSetBill(Number(e.target.value))} placeholder='Enter bill amount...'></input>
+            {bill}
         </h1>
         </div>
         </>
